@@ -1,0 +1,27 @@
+
+
+    <nav class="navbar navbar-light bg-faded">
+      <!--Usamos o router-link para lidar com rotas e gerar os links certos-->
+      <a class="navbar-brand" routerLink="/">Contatos</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contato/save">Novo</a>
+        </li>
+      </ul>
+      <form class="form-inline float-xs-right">
+        <input class="form-control" type="text" placeholder="Search"
+          name="busca"
+          [(ngModel)]="termo">
+      </form>
+    </nav>
+    
+    <router-outlet></router-outlet>
+<!--O event vem definido como um output property-->
+<!--como desenvolvemos o two way data binding, aqui poderiamos usar a sintaxe curta [(busca)]="termo"-->
+<!--pra isso funcionar, o campo deve ter os nomes "busca" e "buscaChange" e assim codificamos
+nosso proprio "ngModel"-->
+<!--<contato-busca [busca] = "termo" (buscaChange)="termo=$event"></contato-busca>-->
+<contato-busca [(busca)] = "termo"></contato-busca>

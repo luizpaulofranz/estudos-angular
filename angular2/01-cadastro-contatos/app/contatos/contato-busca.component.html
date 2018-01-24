@@ -1,0 +1,30 @@
+<div class="container">
+    
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+    
+                <h3>Busca</h3>
+    
+                <div class="form-group">
+                    <label for="search"></label>
+                    <!--Podemos desmembrar o ngModel, para os tipos de event
+                    Nesse caso não usamos o [()] pois nao observamos diretamente o busca,
+                    "busca" contem apenas os termos, mas precisamos fazer o "search" pra listar
+                    os contatos, por isso chamamos separadamente o event binding
+                    -->
+                    <input type="search" class="form-control" placeholder="Digite sua busca"
+                        [ngModel]="busca" (ngModelChange)="search($event)"
+                    >
+                </div>
+    
+                <ul class="list-group">
+                    <!--O async eh para trabalhar com Observables-->
+                    <li class="list-group-item cursor-pointer" 
+                    *ngFor="let c of contatos | async" 
+                    (click)="verContato(c)">{{ c.nome }}</li>
+                </ul>
+    
+            </div>
+        </div>
+    
+    </div>

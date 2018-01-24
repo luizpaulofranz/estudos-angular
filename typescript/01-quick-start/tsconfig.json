@@ -1,0 +1,18 @@
+/*Esse arquivo apresenta instrucoes ao compilador do typescript
+que eh compilado com o tsc (typeScript compiller), automaticamente por meio de uma task do nosso editor (tasks.json)
+*/
+{
+    //indicamos a versao do JS gerado
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true
+    }
+}
+
+/*
+target: indica a versao do JS objeto (es5 eh uma versao do JavaScript)
+sourceMap: Faz um mapeamento entre um arquivo JS compilado e seu arquivo typeScript.
+ao compilar uma aplicacao JS, podemos juntar varios arquivos em um unico arquivo ".js"
+Assim os arquivos de "Map" ajudam a debuggar a aplicacao, na pratica, nao precisamos entender esse arquivo.
+*/

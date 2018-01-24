@@ -1,0 +1,45 @@
+<div class="container">
+
+
+    <h2>Salvar Contato</h2>
+
+    <!--Assim temos total controle sobre as acoes desse formulario, esta na variavel contatoForm-->
+    <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" novalidate>
+        
+        <!--Validacao de campos com angular, ng-class com property binding, recebe um objeto JS-->
+        <!--o simbolo "#" é um template reference variable, significa que podemos usar essa
+             variavel dentro deste template. Usamos nesse caso, para termos acesso local em nome.valid, pristine-->
+        <div [ngClass]="getFormGroupCssClass(nome.valid, nome.pristine)">
+            <label for="nome" class="form-control-label">Nome:</label>
+            <input [ngClass]="getForminputCssClass(nome.valid, nome.pristine)" id="nome" name="nome" type="text" placeholder="Insira o nome aqui"
+            required
+            #nome = "ngModel"
+            [(ngModel)] = "contato.nome"/>
+            <!--Assim q eh feito o 2 way databinding no Angular 2-->
+            <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo é obrigatório!</div>
+        </div>
+        <div [ngClass]="getFormGroupCssClass(email.valid, email.pristine)">
+            <label for="email" class="form-control-label">Email:</label>
+            <input [ngClass] = "getForminputCssClass(email.valid, email.pristine)" id="email" name="email" type="email" placeholder="Insira o email aqui"
+            required
+            #email = "ngModel"
+            [(ngModel)] = "contato.email"/>
+            <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O campo é obrigatório!</div>
+        </div>
+
+        <div [ngClass]="getFormGroupCssClass(telefone.valid, telefone.pristine)">
+            <label for="telefone" class="form-control-label">Telefone:</label>
+            <input [ngClass] = "getForminputCssClass(telefone.valid, telefone.pristine)" id="telefone" name="telefone" type="text" placeholder="Insira o telefone aqui"
+            required
+            #telefone = "ngModel"
+            [(ngModel)] = "contato.telefone"/>
+            <div class="form-control-feedback" [hidden]="telefone.valid || telefone.pristine">O campo é obrigatório!</div>
+        </div>
+
+        <!--Desabilitamos o salvar enquanto o formulario nao estiver correto.
+        "[]" significa property binding, "()" event binding, property é One way-->
+        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid" >Salvar</button>
+        <a (click)="goBack()" class="btn btn-secondary">Voltar</a>
+    </form>
+
+</div>

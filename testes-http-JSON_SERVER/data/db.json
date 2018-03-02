@@ -1,0 +1,26 @@
+{
+  "cidades": [
+    {
+      "nome": "Uberlândia",
+      "id": 1
+    },
+    {
+      "nome": "São Paulo",
+      "id": 2
+    },
+    {
+      "nome": "Fortaleza",
+      "id": 3
+    }
+  ],
+  "comentário": [
+  "Tive de fazer isso pra poder comentar aqui dentro",
+  "npm install -g json-server",
+  "para rodar, basta digitar: 'json-server --watch path/arquivo.json' no terminal",
+  "para ver o servidor rodando abra localhost:3000, e ele vai listar os recursos",
+  "nesse exemplo, 'cidades' vira um recurso",
+  "E assim temos um servidor restful fake para nossos testes!",
+  "Esse eh o Json que o JSON Server vai manipular para testes"
+  ]
+}
+

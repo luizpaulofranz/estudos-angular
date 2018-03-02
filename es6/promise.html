@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <head><title>Promises</title></head>
+   <body>
+      <script>
+	//isso retorna uma promise
+	//para trabalhar com servicos assincronos, eh como o padrao Proxy
+	const resposta = fetch('http://api.postmon.com.br/v1/cep/89920000');
+	//then eh chamada quando a promise eh resolvida, ou seja, quando a API retornar
+	//usamos arrow function para formatar o retorno (data) como json
+
+	//veja que ha duas funcoes, uma trata o erro aqui e mesmo e ja repassa para o outro then
+	//resposta.then(data=>data.json(), data => {console.log(`Insucesso: ${data}`)})
+	
+	//caso nao tratemos o erro, como aqui, caira no catch la embaixo, mude a URL ali encima pra testar
+	resposta.then(data=>data.json())
+		//outro then, ou seja, quando terminar o anterior, esse sera chamado
+		//e assim sucessivamente, em cascata, cada then retorna outra promise
+		//cada then pode conter 2 funcoes, a primeira para sucesso e segunda para falhas (estados da promise)
+		.then(data=>{console.log(`Sucesso: ${data}`)})
+		// caso ocorra uma excecao
+		.catch(erro => {console.log(`Erro: ${erro}`)})
+
+      </script>
+   </body>
+</html>

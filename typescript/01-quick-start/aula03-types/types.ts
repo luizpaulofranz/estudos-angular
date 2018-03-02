@@ -4,6 +4,9 @@ function log(message : string){
 
 log('aaa');
 
+// de sempre preferencia ao "let" ao invés de "var", o let resolve alguns problemas de escopo
+// foi introduzido no ES6.
+
 //assim declaramos uma variavel, ambos tem o mesmo resultado
 let hue : Array<string>  = ['ola', 'teste'];
 let hue2 : [string]  = ['ola', 'teste'];

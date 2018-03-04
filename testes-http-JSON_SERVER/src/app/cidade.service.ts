@@ -17,4 +17,12 @@ export class CidadeService {
       .then(response => response.json());
   }
 
+  // retorna o objeto adicionado, incluindo o ID
+  adicionar(cidade: any): Promise<any> {
+    // o segundo parametro eh o corpo da requisicao
+    return this.http.post('http://localhost:3000/cidades', cidade)
+      .toPromise()
+      .then(response => response.json());
+  }
+
 }

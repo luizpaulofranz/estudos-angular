@@ -14,12 +14,21 @@ export class AppComponent implements OnInit {
 
   // e aqui no carregamos a lista de cidades
   ngOnInit() {
+    this.consultar();
+  }
+
+  consultar() {
     this.cidadeService.consultar()
       .then(cidades => { this.cidades = cidades } );
   }
 
-  adicionar(nome: string) {
-    alert(nome);
+  adicionar(nomeCidade: string) {
+    // passamos um objeto javascript q sera convertido em Json
+    this.cidadeService.adicionar({ nome: nomeCidade })
+      .then(cidade => {
+        alert(`Cidade "${cidade.nome}" adicionada com código "${cidade.id}".` );
+        this.consultar();
+      })
   }
 
   excluir(id: number) {

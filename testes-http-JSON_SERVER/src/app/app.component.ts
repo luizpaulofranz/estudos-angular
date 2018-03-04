@@ -40,7 +40,13 @@ export class AppComponent implements OnInit {
   }
 
   atualizar(cidade: any) {
-    alert(JSON.stringify(cidade));
+    this.cidadeService.atualizar(cidade)
+      // nesse caso, prefirimos nao pegar os dados retornados pelo backend
+      // e nao precisamos recarregar a lista de cidades, pois nossa alteracao
+      // ja esta visivel no form
+      .then(() => {
+        alert('Cidade atualizada com sucesso!');
+      });
   }
 
 }

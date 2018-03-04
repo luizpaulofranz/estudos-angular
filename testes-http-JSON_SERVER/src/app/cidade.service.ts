@@ -32,4 +32,12 @@ export class CidadeService {
       .then(() => null);
   }
 
+  // retorna o objeto adicionado, incluindo o ID
+  atualizar(cidade: any): Promise<any> {
+    // o segundo parametro eh o corpo da requisicao
+    return this.http.put(`http://localhost:3000/cidades/${cidade.id}`, cidade)
+      .toPromise()
+      .then(response => response.json());
+  }
+
 }

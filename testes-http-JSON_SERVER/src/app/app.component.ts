@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
         alert(`Cidade "${cidade.nome}" adicionada com código "${cidade.id}".` );
         this.consultar();
       })
+      .catch(erro => alert(erro));
   }
 
   excluir(id: number) {
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
       .then(() => {
         alert('Cidade excluída com Sucesso!');
         this.consultar();
-      });
+      })
+      .catch(erro => alert(erro));
   }
 
   atualizar(cidade: any) {
@@ -46,7 +48,8 @@ export class AppComponent implements OnInit {
       // ja esta visivel no form
       .then(() => {
         alert('Cidade atualizada com sucesso!');
-      });
+      })
+      .catch(erro => alert(erro));
   }
 
 }
